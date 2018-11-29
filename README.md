@@ -255,7 +255,7 @@ import { someResolver } from 'resolvers/blabla';
 export default {
   Query: {
     getUser: combineResolvers(isAuthenticated('admin'), getUser), // only user with admin role can access
-    profile: combineResolvers(isAuthenticated(['admin', 'user']), getProfile), // user with admin
+    profile: combineResolvers(isAuthenticated(['admin', 'user']), getProfile), // user with admin role and user role can access
     someResolver: combineResolvers(isAuthenticated(), someResolver), // default to only user role
     getArticles, // public access
   },
@@ -273,7 +273,7 @@ import { combineResolvers } from 'graphql-resolvers';
 import { isAuthenticated, signin, signup } from 'resolvers/auth';
 import { getArticleById, getArticles, createArticle } from 'resolvers/article';
 import { getPost, getPosts, createPost } from 'resolvers/post';
-import { getComment, createComment } from 'resolvers/comment';
+import { getPostComments, getComment, createComment } from 'resolvers/comment';
 import { getProfile, getUser, getUsers } from 'resolvers/user';
 
 const resolvers = {
@@ -284,6 +284,7 @@ const resolvers = {
     getArticles,
     getPost,
     getPosts,
+    getPostComments,
     getComment,
     getUser: combineResolvers(isAuthenticated('admin'), getUser),
     getUsers: combineResolvers(isAuthenticated('admin'), getUsers),
@@ -294,6 +295,11 @@ const resolvers = {
     createComment: combineResolvers(isAuthenticated(), createComment),
     signin,
     signup,
+  },
+  Post: {
+    comments: function(obj, args, context, info) {
+      return context.schemas.comment.find({ post: obj._id });
+    },
   },
 };
 
@@ -308,10 +314,6 @@ You are able to access graphql playground with url http://localhost:4000/graphql
 Just copy below code and paste to your playground and you are good to go
 
 ```graphql
-query sayHello {
-  hello
-}
-
 mutation signup {
   signup(name: "Louis Loo", email: "louis@mail.com", password: "somepassword") {
     token

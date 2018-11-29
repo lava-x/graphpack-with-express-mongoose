@@ -27,7 +27,6 @@ const resolvers = {
   },
   Post: {
     comments: function(obj, args, context, info) {
-      console.log('=== Post Comments ----->');
       return context.schemas.comment.find({ post: obj._id });
     },
   },
