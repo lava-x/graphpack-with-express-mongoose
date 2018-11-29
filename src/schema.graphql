@@ -1,0 +1,61 @@
+type Query {
+  hello: String
+  profile: UserWithBasicInfo
+  getArticle(id: String!): Article
+  getArticles(size: Int, page: Int): [Article!]
+  getPost(id: String): Post
+  getPosts(size: Int, page: Int): [Post]
+  getPostComments(post: String, size: Int, page: Int): [Comment]
+  getComment(id: String): Comment
+  getUser(id: String): User
+  getUsers(size: Int, page: Int): [User]
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  signin(email: String!, password: String!): AuthPayload
+  createArticle(title: String, body: String): Article
+  createPost(title: String, content: String): Post
+  createComment(postId: String, content: String): Comment
+}
+
+# ================ Type
+type AuthPayload {
+  token: String
+  user: UserWithBasicInfo
+}
+
+type User {
+  _id: String
+  name: String
+  email: String
+  roles: [String!]!
+}
+
+type UserWithBasicInfo {
+  _id: String
+  name: String
+  email: String
+}
+
+type Article {
+  _id: String
+  user: UserWithBasicInfo
+  title: String
+  body: String
+}
+
+type Post {
+  _id: String
+  user: UserWithBasicInfo
+  title: String
+  content: String
+  comments: [Comment]
+}
+
+type Comment {
+  _id: String
+  user: UserWithBasicInfo
+  content: String
+  post: String
+}

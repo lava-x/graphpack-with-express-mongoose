@@ -1,0 +1,29 @@
+{
+  "name": "graphpack-with-express-mongoose",
+  "version": "1.0.0",
+  "description": "Graphpack with express and mongoose starter",
+  "license": "MIT",
+  "scripts": {
+    "dev": "graphpack",
+    "build": "graphpack build",
+    "start": "node ./build/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.0.0",
+    "express": "^4.16.4",
+    "graphql-resolvers": "^0.2.2",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.13",
+    "mongoose-autopopulate": "^0.9.0",
+    "mongoose-unique-validator": "^2.0.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "graphpack": "^1.0.5"
+  }
+}

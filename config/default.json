@@ -1,0 +1,19 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/graphql_mongoose",
+  "token": {
+    "secret": "7a3bb3c16bbeb1ecac748a59b8a4a980d50e28cdaf1cfbdf2549e3cb229dbadcc914efab517bc2f9a96ea9910a3cc3a807842bdc44e723b645a15e1fe97320c9b5b4e12260703b05491d1064f4e6f499e6d043cc24bc7fb2c1664f99a2504963bf517f11d17a492140be7ffffd6f8d12a29a6d587122e398fcdec8a451b50e3ae647035fb232b7b466db8b3fb6b9975b14486c868d0ada346e60ca58a2f10d582f1deba75b2b0ab1d0b41562f8d629200aaef86d987d88111d44e6da64264f7b3b4e3303f61e6b5751b0eb3cb1943d5d499b66e09f87df218194b1defd6c169f91f857f299f616c59e8da54ad0ff2aed452ade4b45d4e9408b913c4bbe6c376c",
+    "validate": "bdf2549e3cb229dbadcc914efab517bc2f9a96ea9910a3cc3a807842bdc44e723b645a15e1fe97320c9b5b4e12260703b05491d1064f4e6f499e6d043cc",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://www.yourdomain.com.my",
+      "subject": "anonymous",
+      "issuer": "graphpack-mongoose",
+      "algorithm": "HS256",
+      "expiresIn": "30d"
+    }
+  }
+}
