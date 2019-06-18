@@ -1,0 +1,28 @@
+type Query {
+  profile: UserWithBasicInfo
+  getUser(id: String): User
+  getUsers(size: Int, page: Int): [User]
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  signin(email: String!, password: String!): AuthPayload
+}
+
+type AuthPayload {
+  token: String
+  user: UserWithBasicInfo
+}
+
+type User {
+  _id: String
+  name: String
+  email: String
+  roles: [String!]!
+}
+
+type UserWithBasicInfo {
+  _id: String
+  name: String
+  email: String
+}

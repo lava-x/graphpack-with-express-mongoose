@@ -1,0 +1,18 @@
+# import UserWithBasicInfo from 'user.graphql'
+
+type Query {
+  getPost(id: String): Post
+  getPosts(size: Int, page: Int): [Post]
+}
+
+type Mutation {
+  createPost(title: String, content: String): Post
+}
+
+type Post {
+  _id: String
+  user: UserWithBasicInfo
+  title: String
+  content: String
+  comments: [Comment]
+}

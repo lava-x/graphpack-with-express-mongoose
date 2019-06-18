@@ -1,0 +1,17 @@
+# import UserWithBasicInfo from 'user.graphql'
+
+type Query {
+  getArticle(id: String!): Article
+  getArticles(size: Int, page: Int): [Article!]
+}
+
+type Mutation {
+  createArticle(title: String, body: String): Article
+}
+
+type Article {
+  _id: String
+  user: UserWithBasicInfo
+  title: String
+  body: String
+}

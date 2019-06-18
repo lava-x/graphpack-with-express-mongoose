@@ -16,6 +16,7 @@ module.exports = (api) => {
             helpers: './src/helpers',
             libs: './src/libs',
             resolvers: './src/resolvers',
+            schema: './src/schema',
           },
         },
       ],

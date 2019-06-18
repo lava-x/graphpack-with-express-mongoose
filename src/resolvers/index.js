@@ -17,6 +17,9 @@ const resolvers = {
     getComment,
     getUser: combineResolvers(isAuthenticated('admin'), getUser),
     getUsers: combineResolvers(isAuthenticated('admin'), getUsers),
+    testExtendsQuery: (obj, args, context) => {
+      return args.text;
+    },
   },
   Mutation: {
     createArticle: combineResolvers(isAuthenticated(), createArticle),

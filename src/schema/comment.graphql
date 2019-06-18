@@ -1,0 +1,17 @@
+# import UserWithBasicInfo from 'user.graphql'
+
+type Query {
+  getPostComments(post: String, size: Int, page: Int): [Comment]
+  getComment(id: String): Comment
+}
+
+type Mutation {
+  createComment(postId: String, content: String): Comment
+}
+
+type Comment {
+  _id: String
+  user: UserWithBasicInfo
+  content: String
+  post: String
+}
